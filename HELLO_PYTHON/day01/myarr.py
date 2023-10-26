@@ -9,5 +9,5 @@ arr = ["홍길동", "전우치", "이순신"]
 print(arr)
 arr.append("홍범도")
 print(arr)
-arr.insert(0, "도요토미")
+arr.insert(1, "도요토미")
 print(arr)
