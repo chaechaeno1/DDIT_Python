@@ -11,3 +11,4 @@ arr.append("홍범도")
 print(arr)
 arr.insert(1, "도요토미")
 print(arr)
+
