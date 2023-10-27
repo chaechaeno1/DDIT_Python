@@ -10,11 +10,12 @@ b = input("끝수를 입력하시오.")
 a = int(a)
 b = int(b)
 
+
 arr = range(a,b+1)
 sum = 0;
 
 for i in arr:
     sum += i
     
-print("{}에서 {}까지의 합은 {}입니다.".format(a,b,sum))    
+print("{}에서 {}까지의 합은 {}입니다.".format(a,b,sum))  
 
