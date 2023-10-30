@@ -6,7 +6,7 @@ def showDan(dan):
     
 
    
-showDan(5)    
+showDan(7)    
 
 
 #숫자와 문자는 동시에 실행 안됨
