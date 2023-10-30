@@ -11,8 +11,8 @@ res = "";
 
 rnd = random()
 
-if rnd < 0.33 : com = "가위"
-elif rnd < 0.66 : com = "바위"
+if rnd > 0.66 : com = "가위"
+elif rnd < 0.33 : com = "바위"
 else : com = "보"
 
 if mine==com : res="비김!"
@@ -24,6 +24,7 @@ else : res = "패배..."
 print("나 : " + mine)
 print("컴 : " + com)
 print("결과 : " + res)
+
 
     
 
