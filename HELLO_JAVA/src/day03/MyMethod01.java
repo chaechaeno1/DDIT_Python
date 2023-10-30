@@ -11,9 +11,7 @@ public class MyMethod01 {
 	static int multply(int a, int b) {
 		return a*b;
 	}
-	static int divice(int a, int b) {
-		return a/b;
-	}
+
 	
 	
 	public static void main(String[] args) {
@@ -26,6 +24,10 @@ public class MyMethod01 {
 		int div = divice(4,2);
 		System.out.println("div : "+div);		
 
+	}
+	
+	static int divice(int a, int b) {
+		return a/b;
 	}
 
 }
