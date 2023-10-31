@@ -51,7 +51,7 @@ public class MySwing03 extends JFrame {
 		btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				myclick2();
+				myclick();
 
 			}
 		});
@@ -78,13 +78,13 @@ public class MySwing03 extends JFrame {
 		contentPane.add(tf3);
 	}
 
-	void myclick2() {
+	void myclick() {
 		int num1 = Integer.parseInt(tf1.getText());
 		int num2 = Integer.parseInt(tf2.getText());
-		int num3 = num1 + num2;
+		int sum = num1 + num2;
 
-		//tf3.setText(String.valueOf(num3));	
-		tf3.setText(num3 + "");
+		//tf3.setText(String.valueOf(sum));	
+		tf3.setText(sum + "");
 
 	}
 
