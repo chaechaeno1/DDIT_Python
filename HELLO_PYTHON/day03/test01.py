@@ -4,14 +4,21 @@
 #**
 #***
 
+def getStar(cnt):
+    txt = ""
+    for i in range(cnt):
+        txt+="*"
+    return txt   
 
+#문자열
 a = input("첫 별수를 입력하세요.")
 b = input("끝 별수를 입력하세요.")
 
+#정수형
 aa = int(a)
 bb = int(b)
 
-arr = range(aa,bb+1)
+for i in range(aa,bb+1):
+    print(getStar(i))
 
-for i in arr:   
-    print('*'*i)
+
