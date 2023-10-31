@@ -12,8 +12,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
 public class MySwing02 extends JFrame {
-
-	private JPanel contentPane;
 	private JTextField tf;
 
 	/**
@@ -35,10 +33,10 @@ public class MySwing02 extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MySwing02() {
+	public MySwing02() { //생성자
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
+		JPanel contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 
 		setContentPane(contentPane);
@@ -54,12 +52,19 @@ public class MySwing02 extends JFrame {
 		btn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				int count = Integer.parseInt(tf.getText());
-				count += 1;
-				tf.setText(String.valueOf(count));
+				myclick();
+
 			}
 		});
 		btn.setBounds(233, 82, 97, 23);
 		contentPane.add(btn);
+	}
+	
+	void myclick() {
+		int count = Integer.parseInt(tf.getText());
+		count += 1;
+		//tf.setText(String.valueOf(count));
+		tf.setText(count+"");
+		
 	}
 }
