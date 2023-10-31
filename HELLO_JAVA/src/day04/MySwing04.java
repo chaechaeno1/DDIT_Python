@@ -11,6 +11,7 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class MySwing04 extends JFrame {
 
@@ -73,45 +74,25 @@ public class MySwing04 extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				
-				
-				int array[] = myClick();
-				lbl1.setText(array[0]+"");
-				lbl2.setText(array[1]+"");	
-				lbl3.setText(array[2]+"");	
-				lbl4.setText(array[3]+"");	
-				lbl5.setText(array[4]+"");	
-				lbl6.setText(array[5]+"");	
-				
-				
+			int[] num = new int[6];
+			Random rnd = new Random();
+			
+			for(int i=0; i<6;i++) {
+				num[i]=rnd.nextInt(45)+1; 
+				// 0~45까지 범위의 난수 발생
+				//45 -> 0~44까지만 나옴				
+			}
+				lbl1.setText(num[0]+"");
+				lbl2.setText(num[1]+"");
+				lbl3.setText(num[2]+"");
+				lbl4.setText(num[3]+"");
+				lbl5.setText(num[4]+"");
+				lbl6.setText(num[5]+"");
+	
 			}
 		});
 		btn.setBounds(67, 88, 313, 23);
 		contentPane.add(btn);
 	}
 	
-	int[] myClick(){
-		
-		int[] array = new int[45];
-
-		for(int i =0; i <45; i++) {
-			array[i] = i+1;
-		}
-		
-		//랜덤 돌리는 횟수 = 1000번	
-		for(int i=0; i<1000;i++) {
-
-			int rnd= (int)(Math.random()*45);
-	
-			//랜덤 섞기
-			int temp = array[i];
-			array[i] = array[rnd];
-			array[rnd] = temp;
-			
-		}
-		return array;
-
-		
-		
-	}
-
 }
