@@ -83,6 +83,7 @@ public class MySwing03 extends JFrame {
 		int num2 = Integer.parseInt(tf2.getText());
 		int num3 = num1 + num2;
 
+		//tf3.setText(String.valueOf(num3));	
 		tf3.setText(num3 + "");
 
 	}
