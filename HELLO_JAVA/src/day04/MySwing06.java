@@ -82,7 +82,8 @@ public class MySwing06 extends JFrame {
 			code += dan +" * " + i + " = " + res +"\n";			
 			ta.setText(code);
 		}
-			
+		
+	
 	}
 	
 }
