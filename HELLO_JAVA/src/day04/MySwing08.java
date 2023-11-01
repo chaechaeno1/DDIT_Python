@@ -89,22 +89,20 @@ public class MySwing08 extends JFrame {
 	}
 	
 	void myClick() {
-				
-		String star1 = tf_first.getText();
-		String star2 = tf_last.getText();
-		
-		int istar1 = Integer.parseInt(star1);
-		int istar2 = Integer.parseInt(star2);
-		
-		
-		String star = "";
-		for(int i = istar1; i <=istar2; i++) {
-			star += getStar(i)+"\n";
-			
-		}
-		ta.setText(star);
+	    String star1 = tf_first.getText();
+	    String star2 = tf_last.getText();
+
+	    int istar1 = Integer.parseInt(star1);
+	    int istar2 = Integer.parseInt(star2);
+
+	    String star = "";
+	    for (int i = istar1; i <= istar2; i++) { 
+	        star += getStar(i) + "\n";
+	    }
+	    ta.setText(star);
+	}
 		
 
 	}
 
-}
+
