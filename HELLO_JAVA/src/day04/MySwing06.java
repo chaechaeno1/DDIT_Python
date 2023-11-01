@@ -77,7 +77,7 @@ public class MySwing06 extends JFrame {
 		
 		String code = ""; //반복문 담을 변수 선언
 		int res = 0; //결과값 담을 변수 선언
-		for(int i = 1; i<10 ;i++) { //구구단 반복			
+		for(int i = 1; i<10 ;i++) { //구구단  반복			
 			res = idan*i; //idan은 직접 입력한 단수	
 			code += dan +" * " + i + " = " + res +"\n";			
 			ta.setText(code);
