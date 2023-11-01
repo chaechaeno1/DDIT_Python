@@ -97,7 +97,7 @@ public class MySwing07 extends JFrame {
 		
 		if(mine.equals(com)) 
 			res = "비김";
-		else if( (mine=="가위" && com=="보") || (mine=="바위" && com=="가위") || (mine=="보" && com=="바위")) {
+		else if((mine=="가위" && com=="보") || (mine=="바위" && com=="가위") || (mine=="보" && com=="바위")) {
 			res = "이김";
 		}else {
 			res = "짐..";
