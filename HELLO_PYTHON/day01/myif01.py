@@ -1,7 +1,8 @@
 a = False
 
-if a : 
+if a :
     print("참")
-    print('babo')
-print('chunjae') 
+    print('바보')
+print('천재')
+
 
