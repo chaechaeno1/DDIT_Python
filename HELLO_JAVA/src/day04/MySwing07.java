@@ -95,13 +95,17 @@ public class MySwing07 extends JFrame {
 		else if(rnd <0.33) com ="바위";
 		else com = "보";
 		
-		if(mine.equals(com)) 
-			res = "비김";
-		else if((mine=="가위" && com=="보") || (mine=="바위" && com=="가위") || (mine=="보" && com=="바위")) {
-			res = "이김";
-		}else {
-			res = "짐..";
-		}
+		if(com.equals("가위") && mine.equals("가위")) res = "비김";
+		if(com.equals("가위") && mine.equals("바위")) res = "이김";
+		if(com.equals("가위") && mine.equals("보")) res = "짐";
+			
+		if(com.equals("바위") && mine.equals("가위")) res = "짐";
+		if(com.equals("바위") && mine.equals("바위")) res = "비김";
+		if(com.equals("바위") && mine.equals("보")) res = "이김";
+		
+		if(com.equals("보") && mine.equals("가위")) res = "이김";
+		if(com.equals("보") && mine.equals("바위")) res = "짐";
+		if(com.equals("보") && mine.equals("보")) res = "비김";
 		
 		tfCom.setText(com);
 		tfResult.setText(res);
