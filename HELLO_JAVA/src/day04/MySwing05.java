@@ -109,6 +109,7 @@ public class MySwing05 extends JFrame {
 		
 		tf_com.setText(com);
 		tf_result.setText(result);
+		// 
 		
 	}
 	
