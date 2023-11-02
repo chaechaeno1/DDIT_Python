@@ -15,7 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
-public class MySwing9_class extends JFrame {
+public class MySwing09_class extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField tf;
@@ -27,7 +27,7 @@ public class MySwing9_class extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MySwing9_class frame = new MySwing9_class();
+					MySwing09_class frame = new MySwing09_class();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -39,7 +39,7 @@ public class MySwing9_class extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MySwing9_class() {
+	public MySwing09_class() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 313, 316);
 		contentPane = new JPanel();
