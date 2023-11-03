@@ -56,7 +56,90 @@ class WindowClass(QMainWindow, form_class):
                         self.pb2D[i][j].setIcon(QtGui.QIcon('1.png')) 
                     if self.arr2D[i][j]==2: 
                         self.pb2D[i][j].setIcon(QtGui.QIcon('2.png'))   
-                            
+    
+    def getUP(self,i,j,stone):        
+        cnt = 0
+        try:
+            while True:
+                    i-=1  
+                    if i < 0 :
+                        return cnt                  
+                    if self.arr2D[i][j] == stone:
+                        cnt+=1           
+                    else :
+                        return cnt
+        except:
+            return cnt    
+                
+    def getDW(self,i,j,stone):        
+        cnt = 0
+        
+        try:
+            while True:
+                    i+=1  
+                    if i < 0 :
+                        return cnt      
+                                
+                    if self.arr2D[i][j] == stone:
+                        cnt+=1           
+                    else :
+                        return cnt
+        except:
+            return cnt 
+                  
+    def getLE(self,i,j,stone):        
+        cnt = 0
+        
+        try:
+            while True:
+                    j-=1  
+                    if i < 0 :
+                        return cnt      
+                                
+                    if self.arr2D[i][j] == stone:
+                        cnt+=1           
+                    else :
+                        return cnt
+        except:
+            return cnt   
+                
+    def getRI(self,i,j,stone):        
+        cnt = 0
+        
+        try:
+            while True:
+                    j+=1  
+                    if i < 0 :
+                        return cnt      
+                                
+                    if self.arr2D[i][j] == stone:
+                        cnt+=1           
+                    else :
+                        return cnt
+        except:
+            return cnt    
+               
+    def getUL(self,i,j,stone):        
+        cnt = 0
+        
+        try:
+            while True:
+                    i-=1
+                    j-=1  
+                    if i < 0 :
+                        return cnt      
+                                
+                    if self.arr2D[i][j] == stone:
+                        cnt+=1           
+                    else :
+                        return cnt
+        except:
+            return cnt           
+            
+            
+            
+            
+            
             
     def myclick(self):
 
@@ -72,11 +155,44 @@ class WindowClass(QMainWindow, form_class):
             return
         
         #오목알 색 바꾸기
+        stone = -1
         if self.flagWb :
-            self.arr2D[i][j]=1  
+            self.arr2D[i][j]=1 
+            stone = 1 
         else : 
             self.arr2D[i][j]=2
-        self.myrender()    
+            stone = 2
+        
+                
+        up = self.getUP(i,j,stone)
+        print("up",up)
+        
+        dw = self.getDW(i,j,stone)
+        print("dw",dw)
+        
+        le = self.getLE(i,j,stone)
+        print("le",le)
+        
+        ri = self.getRI(i,j,stone)
+        print("ri",ri)
+        
+        ul = self.getUL(i,j,stone)
+        print("ul",ul)
+
+        # ur = self.getUR(i,j,stone)
+        # print("ur",ur)
+        #
+        # dl = self.getDL(i,j,stone)
+        # print("dl",dl)
+        #
+        # dr = self.getDR(i,j,stone)
+        # print("dr",dr)
+        
+        
+
+        self.myrender()
+        
+        #순서 바꾸기    
         self.flagWb = not self.flagWb      
             
 
