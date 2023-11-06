@@ -5,7 +5,7 @@ from PyQt5.Qt import QPushButton, QMessageBox
 from _ast import If
 from astropy.time.utils import split
 
-form_class = uic.loadUiType("myomok02.ui")[0]
+form_class = uic.loadUiType("myomok03_19.ui")[0]
 
 class WindowClass(QMainWindow, form_class): 
     def __init__(self):
@@ -13,17 +13,29 @@ class WindowClass(QMainWindow, form_class):
         
         #5개 맞추기 위해 arr 툴 만들었음
         self.arr2D=[
-            [0,0,0,0,0, 0,0,0,0,0],
-            [0,0,0,0,0, 0,0,0,0,0],
-            [0,0,0,0,0, 0,0,0,0,0],
-            [0,0,0,0,0, 0,0,0,0,0],
-            [0,0,0,0,0, 0,0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
             
-            [0,0,0,0,0, 0,0,0,0,0],
-            [0,0,0,0,0, 0,0,0,0,0],
-            [0,0,0,0,0, 0,0,0,0,0],
-            [0,0,0,0,0, 0,0,0,0,0],
-            [0,0,0,0,0, 0,0,0,0,0]
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+            [0,0,0,0,0, 0,0,0,0,0, 0,0,0,0,0, 0,0,0,0],
+
         ]
         #배열안에 배열 넣으면 2차원 구조가 됨
         self.pb2D = []
@@ -31,11 +43,10 @@ class WindowClass(QMainWindow, form_class):
 
         self.flagWb = True #오목알 색 바꾸기
         self.flagOver = False #gameOver 결정하는 플래그
-
-        #qpushbutton을 생성한담에 for문으로 10*10만들기 
-        for i in range(10): 
+ 
+        for i in range(19): 
             line = []
-            for j in range(10): # 10x10 오목판
+            for j in range(19): # 10x10 오목판
                 pb = QPushButton('', self) #빈 텍스트 가지는 btn 생성. 각 셀을 의미.
                 pb.setToolTip("{},{}".format(i,j)) 
                 pb.setIcon(QtGui.QIcon('0.png')) #각 btn에 이미지 파일 설정
@@ -52,16 +63,16 @@ class WindowClass(QMainWindow, form_class):
     
     def myreset(self):
 
-        for i in range(10): 
-            for j in range(10):
+        for i in range(19): 
+            for j in range(19):
                 self.arr2D[i][j]=0
         self.myrender()
         self.flagWb = True #오목알 색 바꾸기
         self.flagOver = False
           
     def myrender(self):        
-        for i in range(10):
-            for j in range(10):
+        for i in range(19):
+            for j in range(19):
                     if self.arr2D[i][j]==0:
                         self.pb2D[i][j].setIcon(QtGui.QIcon('0.png')) 
                     if self.arr2D[i][j]==1:
@@ -248,8 +259,6 @@ class WindowClass(QMainWindow, form_class):
         dr = self.getDR(i,j,stone)
         dl = self.getDL(i,j,stone)
         
-        print(up, dw, le, ri, ur, ul, dr, dl)
-        
         d1 = up + dw + 1
         d2 = ur + dl + 1
         d3 = le + ri + 1
@@ -263,7 +272,7 @@ class WindowClass(QMainWindow, form_class):
                 QMessageBox.about(self,'오목','흰 돌 승리!')
             else :
                 QMessageBox.about(self,'오목','검은 돌 승리!')       
-        
+            self.flagOver=True    
          
 
         self.flagWb=not self.flagWb         
