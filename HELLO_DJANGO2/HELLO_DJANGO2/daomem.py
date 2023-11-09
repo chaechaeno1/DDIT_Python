@@ -14,7 +14,7 @@ class DaoMem:
         list = self.curs.fetchall()
         return list  
     
-    def seletcOne(self, m_id):
+    def selectOne(self, m_id):
         sql = f"""
             select * from member 
             where 

@@ -4,7 +4,32 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<script type="text/javascript">
+	function fn_add(){
+		location.href="mem_add";
+	}
+</script>
+
 <body>
+
 MEM_LIST
+<table border="1">
+	<tr>
+		<td>회원 아이디</td>
+		<td>이름</td>
+		<td>연락처</td>
+		<td>이메일</td>
+	</tr>
+{% for m in list %}	
+	<tr>
+		<td><a href="mem_detail?m_id={{m.m_id}}">{{m.m_id}}</a></td>
+		<td>{{m.m_name}}</td>
+		<td>{{m.tel}}</td>
+		<td>{{m.email}}</td>
+	</tr>	
+{% endfor %}	
+</table>
+
+<input type="button" value="추가" onclick="fn_add()">
 </body>
 </html>

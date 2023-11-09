@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script type="text/javascript">
+ 	function fn_mod_act(){ 		
+		document.frm.submit(); /* id가 아닌 name으로 전송할 때, frm은 form의 네임!*/
+	} 
+</script>
+
+<body>
+
+
+MEM_MOD
+<form action="mem_mod_act" method="post" name="frm">
+{% csrf_token %}
+	<table border="1">
+		<tr>
+			<td>회원 아이디</td>
+			<td><input type="text" name="m_id" value="{{vo.m_id}}"></td>
+		</tr>
+		
+		<tr>
+			<td>이름</td>
+			<td><input type="text" name="m_name" value="{{vo.m_name}}"></td>
+		</tr>
+		
+		<tr>
+			<td>연락처</td>
+			<td><input type="text" name="tel" value="{{vo.tel}}"></td>
+		</tr>
+	
+		<tr>
+			<td>이메일</td>
+			<td><input type="text" name="email" value="{{vo.email}}"></td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="button" value="저장" onclick="fn_mod_act()">
+			</td>
+		</tr>					
+	
+	
+	</table>
+</form>
+</body>
+</html>

@@ -1,5 +1,5 @@
 import pymysql
-class DaoEmp:
+class DaoMem:
     
     def __init__(self): #생성자
         self.conn = pymysql.connect(host='localhost', user='root', password='python',
@@ -8,17 +8,17 @@ class DaoEmp:
         self.curs = self.conn.cursor(pymysql.cursors.DictCursor)
         
     def selectList(self):
-        sql = "select * from emp"
+        sql = "select * from member"
         self.curs.execute(sql)
          
         list = self.curs.fetchall()
         return list  
     
-    def selectOne(self, e_id):
+    def selectOne(self, m_id):
         sql = f"""
-            select * from emp 
+            select * from member 
             where 
-                e_id='{e_id}'
+                m_id='{m_id}'
         """
         self.curs.execute(sql)
         
@@ -26,36 +26,36 @@ class DaoEmp:
         vo = self.curs.fetchone()
         return vo
     
-    def insert(self,e_id,e_name,gen,addr):
+    def insert(self,m_id,m_name,tel,email):
         sql = f"""
-            insert into emp
-            (e_id, e_name, gen, addr)
+            insert into member
+            (m_id, m_name, tel, email)
             values
-            ('{e_id}', '{e_name}', '{gen}', '{addr}')
+            ('{m_id}', '{m_name}', '{tel}', '{email}')
         """
         
         cnt = self.curs.execute(sql)
         self.conn.commit()
         return cnt
     
-    def update(self,e_name,gen,addr,e_id):
+    def update(self,m_name,tel,email,m_id):
         sql = f"""
-            update emp
+            update member
             set
-                e_name='{e_name}',
-                gen='{gen}',
-                addr='{addr}'
+                m_name='{m_name}',
+                tel='{tel}',
+                email='{email}'
             where 
-                e_id='{e_id}'    
+                m_id='{m_id}'    
         """        
         cnt = self.curs.execute(sql)
         self.conn.commit()
         return cnt
     
-    def delete(self,e_id):
+    def delete(self,m_id):
         sql = f"""
-            delete from emp
-            where e_id='{e_id}'   
+            delete from member
+            where m_id='{m_id}'   
         """      
         cnt = self.curs.execute(sql)
         self.conn.commit()
@@ -69,7 +69,7 @@ class DaoEmp:
         
         
 if __name__ == '__main__':
-        de = DaoEmp()
-        cnt = de.delete('5')
+        de = DaoMem()
+        cnt = de.insert('1','1','1','1')
         print(cnt)
     
