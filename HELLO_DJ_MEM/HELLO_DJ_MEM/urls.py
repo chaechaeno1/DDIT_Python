@@ -19,6 +19,6 @@ from django.urls import path
 from HELLO_DJ_MEM import views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('mem_list', views.mem_list),
+    #path('admin/', admin.site.urls),
+    path('', views.mem_list),
 ]
