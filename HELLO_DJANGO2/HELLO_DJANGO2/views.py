@@ -2,6 +2,7 @@ from django.shortcuts import HttpResponse
 from django.shortcuts import render
 from django.views.decorators.csrf import csrf_exempt
 import pymysql
+from HELLO_DJANGO2.daoemp import DaoEmp
 
 def index(request):
     return HttpResponse("Hello, Django")
@@ -29,20 +30,26 @@ def forw(request):
 
 
 def emp(request):
-            # MySQL Connection 연결
-        conn = pymysql.connect(host='localhost', user='root', password='python',
-                               db='python', port=3305, charset='utf8')
-         
-        curs = conn.cursor(pymysql.cursors.DictCursor)
-         
-        sql = "select * from emp"
-        curs.execute(sql)
-         
-        emps = curs.fetchall()
-        print(emps)     
+        #     # MySQL Connection 연결
+        # conn = pymysql.connect(host='localhost', user='root', password='python',
+        #                        db='python', port=3305, charset='utf8')
+        #
+        # curs = conn.cursor(pymysql.cursors.DictCursor)
+        #
+        # sql = "select * from emp"
+        # curs.execute(sql)
+        #
+        # emps = curs.fetchall()
+        # print(emps)     
+        #
+        # curs.close() 
+        # conn.close()  
+        # return render(request, 'emp.html', {'emps':emps})
         
-        curs.close() 
-        conn.close()  
-        return render(request, 'emp.html', {'emps':emps})
+        
+        de = DaoEmp()
+        list = de.selectList()
+        
+        return render(request, 'emp.html', {'list': list})
 
 
