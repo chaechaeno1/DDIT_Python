@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+JS01
+
+<div id="mydiv">Good Morning</div>
+<input type="button" value="CLICK" id="Btn" onclick="change()"/>
+
+
+
+</body>
+
+<script type="text/javascript">
+
+
+function change(){
+	//console.log("change");
+	
+	//(1)
+	document.getElementById("mydiv").innerHTML ="Good Evening";
+	
+	//(2)
+	var obj = document.getElementById("mydiv");
+	obj.innerHTML = "Good Evening";
+	
+}
+
+
+
+</script>
+
+
+</html>

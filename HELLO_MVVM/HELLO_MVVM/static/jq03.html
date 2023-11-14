@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script src="jquery-3.7.1.js"></script>
+
+<script type="text/javascript">
+
+
+/* for문으로도 완성하기! */
+function myclick(){
+
+	
+	var dan = $(".mysel :selected").val();
+	//console.log(dan);
+	var idan = parseInt(dan);
+		
+	var txt = "";
+	txt += dan+"*"+1+"="+(idan*1)+"\n";
+	txt += dan+"*"+2+"="+(idan*2)+"\n";
+	txt += dan+"*"+3+"="+(idan*3)+"\n";
+	txt += dan+"*"+4+"="+(idan*4)+"\n";
+	txt += dan+"*"+5+"="+(idan*5)+"\n";
+	txt += dan+"*"+6+"="+(idan*6)+"\n";
+	txt += dan+"*"+7+"="+(idan*7)+"\n";
+	txt += dan+"*"+8+"="+(idan*8)+"\n";
+	txt += dan+"*"+9+"="+(idan*9)+"\n";
+	
+	$("#myta").val(txt);
+	//obj_ta.value= txt;
+	
+
+}
+
+//자바스크립트 사용시 input type에 onclick 사용하는 것과 같은 기능
+$(document).ready(function () {
+    $("#btn").on("click", function (event) {
+        myclick();
+    });
+    $(".mysel").on("click", function (event) {
+        myclick();
+    });
+    
+    
+});
+
+
+</script>
+
+<body>
+
+JQ03
+
+<table border="1">
+	<tr>
+		<td>출력단수</td>
+		<td>
+			<select class="mysel" id="mysel">
+				<option value="2">2단</option>
+				<option value="3">3단</option>
+				<option value="4">4단</option>
+				<option value="5">5단</option>
+				<option value="6">6단</option>
+				<option value="7">7단</option>
+				<option value="8">8단</option>
+				<option value="9">9단</option>
+			</select>
+		</td>
+	</tr>
+	
+		<tr>
+		
+		<td colspan="2">
+			<input type="button" value="출력하기" id="btn">
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2">
+			<textarea id="myta" rows="10" cols="10"></textarea>
+		</td>
+	</tr>
+
+
+</table>
+
+
+</body>
+
+
+
+
+</html>

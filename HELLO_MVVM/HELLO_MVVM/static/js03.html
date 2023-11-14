@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script type="text/javascript">
+
+/* for문으로도 완성하기! */
+function myclick(){
+
+	var obj_sel = document.getElementsByClassName("mysel")[0];
+	var obj_ta = document.getElementById("myta");
+	
+	var dan = obj_sel.options[obj_sel.selectedIndex].value;
+	var idan = parseInt(dan);
+	
+	
+	var txt = "";
+	txt += dan+"*"+1+"="+(idan*1)+"\n";
+	txt += dan+"*"+2+"="+(idan*2)+"\n";
+	txt += dan+"*"+3+"="+(idan*3)+"\n";
+	txt += dan+"*"+4+"="+(idan*4)+"\n";
+	txt += dan+"*"+5+"="+(idan*5)+"\n";
+	txt += dan+"*"+6+"="+(idan*6)+"\n";
+	txt += dan+"*"+7+"="+(idan*7)+"\n";
+	txt += dan+"*"+8+"="+(idan*8)+"\n";
+	txt += dan+"*"+9+"="+(idan*9)+"\n";
+	
+	obj_ta.value= txt;
+	
+
+
+	
+	
+	//for(var i =1; i <= 9 ; i++){
+	//     var result = value * i;
+	
+	     
+
+	
+}
+
+
+</script>
+
+<body>
+
+JS03
+
+<table border="1">
+	<tr>
+		<td>출력단수</td>
+		<td>
+			<select class="mysel" onchange="myclick()">
+				<option value="2">2단</option>
+				<option value="3">3단</option>
+				<option value="4">4단</option>
+				<option value="5">5단</option>
+				<option value="6">6단</option>
+				<option value="7">7단</option>
+				<option value="8">8단</option>
+				<option value="9">9단</option>
+			</select>
+		</td>
+	</tr>
+	
+		<tr>
+		
+		<td colspan="2">
+			<input type="button" value="출력하기" onclick="myclick()">
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2">
+			<textarea id="myta" rows="10" cols="10"></textarea>
+		</td>
+	</tr>
+
+
+</table>
+
+
+</body>
+
+
+
+
+</html>

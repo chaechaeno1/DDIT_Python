@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+<head>
+<style>
+body table{
+	text-align: center;
+}
+#it{
+	text-align: right;
+}
+</style>
+
+<script src="jquery-3.7.1.js"></script>
+<script type="text/javascript">
+
+function myclick(obj){
+	
+	
+	var str_new = $(obj).val();
+	var str_old = $("#it").val();
+	
+	$("#it").val(str_old + str_new);
+	//obj_it.val() = str_old + str_new;
+	
+	//console.log(obj.value);
+	
+}
+
+function mycall(){
+	
+	var str_tel = $("#it").val();
+	
+	alert("calling\n" + str_tel);
+	
+}
+
+
+
+//자바스크립트 사용시 input type에 onclick 사용하는 것과 같은 기능
+$(document).ready(function(){	
+	 $(".btn").bind("click", function (event) {		 
+	
+		 myclick(event.target);
+	 });
+	 $(".btn_call").bind("click", function (event) {		 
+	
+		 mycall();
+	 });	 
+	
+});
+
+
+
+</script>
+
+</head>
+
+<body>
+
+JQ06
+
+<table border="1">
+
+	<tr>
+		<td colspan="3">
+			<input type="text" id="it"/>
+		</td>
+		
+	</tr>
+	<tr>
+		<td><input type="button" class="btn" value="1" ></td>
+		<td><input type="button" class="btn" value="2" ></td>
+		<td><input type="button" class="btn" value="3" ></td>		
+	</tr>
+	<tr>
+		<td><input type="button" class="btn" value="4" ></td>
+		<td><input type="button" class="btn" value="5" ></td>
+		<td><input type="button" class="btn" value="6"></td>		
+	</tr>	
+	<tr>
+		<td><input type="button" class="btn" value="7" ></td>
+		<td><input type="button" class="btn" value="8" ></td>
+		<td><input type="button" class="btn" value="9" ></td>		
+	</tr>
+	<tr>
+		<td><input type="button" class="btn" value="0" ></td>
+		<td colspan="2">
+			<input type="button" class="btn_call" value="☎"/>
+		</td>		
+	</tr>		
+	
+</table>
+
+
+</body>
+
+
+</html>

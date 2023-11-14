@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>STUDENT HTML</title>
+<script src="jquery-3.7.1.js"></script>
+
+
+
+<script type="text/javascript">
+function fn_list(){
+	var param = {'s_id':1};
+	$.ajax({
+		type : 'POST',
+		url : '/selectlist.ajax',
+		data : JSON.stringify(param),
+		success : function(res) {
+			var list = res.list;
+			setList(list); //하단에 만든 함수 사용, 콜백함수
+		}
+	});
+}
+
+function fn_select(s_id){
+	var data = {'s_id':s_id}; //selectlist에서 가져온 e_id
+	//avaScript 객체 data가 생성되며 
+	//키가 'e_id'이고 값이 제공된 e_id인 키-값 쌍이 포함
+	$.ajax({
+		type : 'POST',
+		url : '/select.ajax',
+		data : JSON.stringify(data), //JSON 문자열로 변환
+		success : function(res) {
+			var vo = res.vo;
+			$("#s_id").val(vo.s_id);
+			$("#s_name").val(vo.s_name);
+			$("#mobile").val(vo.mobile);
+			$("#grade").val(vo.grade);
+		}
+	});
+}
+
+function fn_add(s_id, s_name, mobile, grade){
+	//console.log("fn_add")
+	var data = { //받아오는 값
+		's_id': $("#s_id").val(),
+		's_name': $("#s_name").val(),
+		'mobile': $("#mobile").val(),
+		'grade': $("#grade").val()			
+	};
+	
+	$.ajax({
+		type : 'POST',
+		url : '/insert.ajax',
+		data : JSON.stringify(data),
+		success : function(res) {
+			console.log(res);
+			var cnt = res.cnt; //views에서 받아온 cnt 값 설정
+			if(cnt == 1){ //성공했으면
+				var list = res.list; //리스트 불러오기 
+				setList(list); //하단에 만든 함수 사용
+				//등록이 완료된 후에 초기화 해줘야 하므로 공백으로 재설정
+				$("#s_id").val("");
+				$("#s_name").val("");
+				$("#mobile").val(""); 
+				$("#grade").val("");
+				
+			}else{
+				alert("추가 도중 문제가 생겼습니다.");
+			}
+			
+		}
+	});
+	
+	
+}
+
+//!!!!
+//수정할 때 사번은 건드리지 말고 나머지만 수정하기!
+function fn_mod(){
+	//console.log("fn_mod")
+	var data = { //받아오는 값
+		's_id': $("#s_id").val(),
+		's_name': $("#s_name").val(),
+		'mobile': $("#mobile").val(),
+		'grade': $("#grade").val()			
+	};
+	
+	$.ajax({
+		type : 'POST',
+		url : '/update.ajax',
+		data : JSON.stringify(data),
+		success : function(res) {
+			console.log(res);
+			var cnt = res.cnt;
+			
+			if(cnt == 1){ //성공했으면
+				var list = res.list; //리스트 불러오기 
+				setList(list); //하단에 만든 함수 사용
+				//등록이 완료된 후에 초기화 해줘야 하므로 공백으로 재설정
+				$("#s_id").val("");
+				$("#s_name").val("");
+				$("#mobile").val(""); 
+				$("#grade").val("");
+				
+			}else{
+				alert("수정 도중 문제가 생겼습니다.");
+			}
+			
+		}
+	});
+	
+	
+	
+	
+}
+
+
+function fn_del(){
+	var flag = confirm("한번 지워진 데이터는 복구불가합니다. 그래도 지우시겠습니까?");
+	if(!flag){ //취소버튼 눌렀을 경우
+		return;
+	}
+	//console.log("fn_del")
+	var data = { //받아오는 값
+		//파라미터 한개
+		's_id': $("#s_id").val(),		
+	};
+	
+	$.ajax({
+		type : 'POST',
+		url : '/delete.ajax',
+		data : JSON.stringify(data),
+		success : function(res) {
+			console.log(res);
+			var cnt = res.cnt;
+			
+			if(cnt == 1){ //성공했으면
+				var list = res.list; //리스트 불러오기 
+				setList(list); //하단에 만든 함수 사용
+				//등록이 완료된 후에 초기화 해줘야 하므로 공백으로 재설정
+				$("#s_id").val("");
+				$("#s_name").val("");
+				$("#mobile").val(""); 
+				$("#grade").val("");
+				
+			}else{
+				alert("삭제 도중 문제가 생겼습니다.");
+			}
+			
+		}
+	});	
+	
+	
+	
+}
+
+//리스트, 추가, 수정, 삭제할 때 계속 쓰일 양식이므로
+//함수로 만들어두기
+function setList(list){
+	var txt = "";
+	for(var i=0;i<list.length;i++){
+		var vo = list[i];
+		var s_id = vo.s_id;
+		var s_name = vo.s_name;
+		var mobile = vo.mobile;
+		var grade = vo.grade;
+		
+		txt += `
+			<tr>
+				<td><a href="javascript:fn_select('${s_id}')">${s_id}</a></td>
+				<td>${s_name}</td>
+				<td>${mobile}</td>
+				<td>${grade}</td>
+			</tr>
+		`;
+	}
+	$("#mytbody").html(txt);
+	
+}
+
+
+
+
+
+
+$(document).ready(function(){
+    fn_list();
+});
+</script>
+
+
+
+</head>
+
+
+
+
+
+
+
+<body>
+STUDENT HTML
+<table border="1px">
+	<thead>
+		<tr>
+			<td>학번</td>
+			<td>이름</td>
+			<td>연락처</td>
+			<td>성적</td>
+		</tr>
+	</thead>
+	<tbody id="mytbody" >
+		<tr>
+			<td colspan="4">검색된 데이터가 없습니다.</td>
+		</tr>
+	</tbody>
+</table>
+<table border="1px">
+	<tr>
+		<td>학번</td>
+		<td>
+			<input type="text" id="s_id" />
+		</td>
+	</tr>
+	<tr>
+		<td>이름</td>
+		<td>
+			<input type="text" id="s_name" />
+		</td>
+	</tr>
+	<tr>
+		<td>연락처</td>
+		<td>
+			<input type="text" id="mobile" />
+		</td>
+	</tr>
+	<tr>
+		<td>성적</td>
+		<td>
+			<input type="text" id="grade" />
+		</td>
+	</tr>
+	<tr>
+		<td colspan="2"> 
+			<input type="button" value="추가" onclick="fn_add()"/>
+			<input type="button" value="수정" onclick="fn_mod()"/>
+			<input type="button" value="삭제" onclick="fn_del()"/>
+		</td>
+	</tr>
+
+</table>
+
+
+</body>
+</html>

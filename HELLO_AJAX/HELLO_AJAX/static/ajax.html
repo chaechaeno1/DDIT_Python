@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.7.1.js"></script>
+
+
+<script type="text/javascript">
+
+function fn_ajax(){
+		var data = {'e_id':1};
+		$.ajax({
+			type : 'POST',
+			url : '/ajax',
+			data : JSON.stringify(data),
+			success : function(res) {
+				console.log(res);
+			},
+		});
+	}
+</script>
+
+
+</head>
+<body>
+
+AJAX HTML
+
+<a href="javascript:fn_ajax()">AJAX</a>
+
+
+
+
+</body>
+</html>

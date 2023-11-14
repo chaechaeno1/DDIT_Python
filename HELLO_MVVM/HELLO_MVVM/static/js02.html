@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+
+
+<style>
+input[name='ita'],input[name='itb'],input[name='itc']{
+	width : 30px;
+}
+
+</style>
+
+<script type="text/javascript">
+
+
+function myclick(){
+	
+		
+		var obj1 = parseInt(document.f1.ita.value);
+		
+		var obj2 = parseInt(document.f1.itb.value);
+		
+		var result = obj1 + obj2;
+		
+		document.f1.itc.value = result;
+
+
+}
+
+
+
+</script>
+
+</head>
+<body>
+
+JS02 <br>
+
+<form name="f1">
+<input type="text" name="ita"/>
++
+<input type="text" name="itb"/>
+<input type="button" value="=" onclick="myclick()"/>
+<input type="text" name="itc"/>
+</form>
+
+
+</body>
+
+
+</html>

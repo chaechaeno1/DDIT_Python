@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+
+<script type="text/javascript">
+
+/* for문으로도 완성하기! */
+function myclick(){
+	
+	var objs = document.getElementsByClassName("myspan");
+	
+	var arr = [
+			1,2,3,4,5,6,7,8,9,10,
+			11,12,13,14,15,16,17,18,19,20,
+			21,22,23,24,25,26,27,28,29,30,
+			31,32,33,34,35,36,37,38,39,40,
+			41,42,43,44,45
+			];
+	
+	for(var i = 0; i < 1000;i++){
+		var rnd = parseInt(Math.random() * 45);
+		var a = arr[0];
+		arr[0] = arr[rnd];
+		arr[rnd] = a;
+			
+	}
+	
+	for (var i = 0; i < 6; i++) {
+	    for (var j = 0; j < 6; j++) {
+	        if (arr[i] < arr[j]) {
+	            a = arr[i];
+	            b = arr[j];
+	            arr[i] = b;
+	            arr[j] = a;
+	        }
+	    }
+	}
+			objs[0].innerText = arr[0];
+			objs[1].innerText = arr[1];
+			objs[2].innerText = arr[2];
+			objs[3].innerText = arr[3];
+			objs[4].innerText = arr[4];
+			objs[5].innerText = arr[5];
+		
+	}
+	
+	
+
+	
+	
+
+	
+
+
+
+</script>
+
+<body>
+
+JS05
+
+<table border="1">
+
+	<tr>
+		<td><span class="myspan">___</span></td>
+		<td><span class="myspan">___</span></td>
+		<td><span class="myspan">___</span></td>
+		<td><span class="myspan">___</span></td>
+		<td><span class="myspan">___</span></td>
+		<td><span class="myspan">___</span></td>
+	</tr>
+	
+	<tr>
+		<td colspan="6">
+			<input type="button" value="CLICK" onclick="myclick()"/>
+		</td>
+	</tr>	
+	
+</table>
+
+
+</body>
+
+
+
+
+</html>

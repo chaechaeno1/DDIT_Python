@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+<title>Insert title here</title>
+</head>
+<style>
+table{
+	text-align: center;
+}
+</style>
+<script>
+$(function(){
+	txt = "";
+	$(document).on('click','.btn',function(){
+		num = $(this).val();
+		//console.log(num);
+		txt += num;
+		$('#it').val(txt);
+	})
+	
+	$(document).on('click','.btn_call',function(){
+		alert("calling" + "\n번호 : "+ txt);
+	})
+})
+
+</script>
+<body>
+JS06<br>
+<table border="1">
+	<tr>
+		<td colspan="3">
+			<input type="text" id="it">
+		</td>
+	</tr>
+	<tr>
+		<td><input type="button" class="btn" value="1"></td>
+		<td><input type="button" class="btn" value="2"></td>
+		<td><input type="button" class="btn" value="3"></td>
+	</tr>
+	<tr>
+		<td><input type="button" class="btn" value="4"></td>
+		<td><input type="button" class="btn" value="5"></td>
+		<td><input type="button" class="btn" value="6"></td>
+	</tr>
+	<tr>
+		<td><input type="button" class="btn" value="7"></td>
+		<td><input type="button" class="btn" value="8"></td>
+		<td><input type="button" class="btn" value="9"></td>
+	</tr>	
+	<tr>
+		<td><input type="button" class="btn" value="0"></td>
+		<td colspan="2"><input type="button" class="btn_call" value="♬"></td>
+	</tr>
+</table>
+</body>
+</html>
