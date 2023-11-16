@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<script>
+function fn_mod_act(){
+	console.log('fn_mod_act')
+
+	if(confirm("정말 수정하시겠습니까?")){
+		document.frm.submit();
+	}else{
+		location.href= "emp_list";		
+	}
+
+}
+</script>
+<body>
+EMP_MDDIFY
+<form name="frm" action="emp_mod_act" method="post">
+	<table border="1">
+ 	<tr>
+ 		<td>사번</td>
+ 		<td><input type="text" value="<%=e_id%>" name="e_id" readonly="readonly"></td>
+ 	</tr>
+ 	
+ 	<tr>
+ 		<td>이름</td>
+ 		<td><input type="text" value="<%=e_name%>" name="e_name"></td>
+ 	</tr>
+
+ 	<tr>
+ 		<td>성별</td>
+ 		<td><input type="text" value="<%=gen%>" name="gen"></td>
+ 	</tr>
+ 
+  	<tr>
+ 		<td>주소</td>
+ 		<td><input type="text" value="<%=addr%>" name="addr"></td>
+ 	</tr>	
+ 	<tr>
+ 		<td colspan="2">
+			<input type="button" value="저장" onclick="fn_mod_act()">
+		</td>
+ 	</tr>
+</table>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	FORW HTML 1
+	<br> <%=a%>
+	<br>
+	<hr />
+	<!-- for문 사용하여 유관순, 윤석열 출력하기 -->
+
+
+	<% for(var i = 0; i < b.length ; i++){ %> <%=b[i]%>
+	<br> <% } %>
+
+	<hr />
+	<!-- 테이블 생성 -->
+	<table border="1">
+		<tr>
+			<td>사번</td>
+			<td>이름</td>
+			<td>성별</td>
+			<td>주소</td>
+		</tr>
+		<% for (var i = 0; i < c.length; i++) { %>
+		<%var e = c[i]%>
+		<tr>
+			<td><%=e.e_id %></td>
+			<td><%=e.e_name %></td>
+			<td><%=e.gen %></td>
+			<td><%=e.addr %></td>
+		</tr>
+		<% } %>
+	</table>
+
+	<hr />
+
+
+</body>
+</html>
